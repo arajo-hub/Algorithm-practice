@@ -16,6 +16,3 @@ def solution(priorities, location):
                 location-=1 # 앞문서가 출력되었으므로, location에 -1을 해준다.(즉, 한칸씩 당겨준다.)
                 answer+=1 # answer는 위치를 출력하므로 +1을 해준다.
     return answer
-
-print(solution([1, 1, 9, 1, 1, 1], 0))
-print(solution([2, 1, 3, 2], 2))
