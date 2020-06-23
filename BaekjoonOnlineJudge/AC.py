@@ -8,7 +8,7 @@ for i in range(int(sys.stdin.readline())):
     if n==0:
         pList=[]
     else:
-        pList=deque(''.join(pList[1:-1]).split(','))
+        pList=deque(''.join(pList[1:-1]).split(',')) # ''를 pList[1:-1]과 결합하고, ','를 경계로 나눈다.
     cnt=0
     tf=True
     for i in p:
