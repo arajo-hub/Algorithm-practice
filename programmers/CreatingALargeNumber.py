@@ -16,6 +16,3 @@ def solution(number, k):
         return "".join([str(i) for i in number])
     else:
         return "0"
-
-
-print(solution([4, 1, 7, 7, 2, 5, 2, 8, 4, 1], 4))
