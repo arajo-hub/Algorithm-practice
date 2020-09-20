@@ -1,9 +1,9 @@
 def solution(N, stages):
     failure=[]
-    length=len(stages)
+    length=len(stages) # 실패율 계산에서 분모가 될 부분
 
     for i in range(1, N+1):
-        count=stages.count(i)
+        count=stages.count(i) # 실패율 계산에서 분자가 될 부분
         if length==0:
             fail=0
         else:
