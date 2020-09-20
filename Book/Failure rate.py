@@ -1,16 +1,16 @@
 def solution(N, stages):
     failure=[]
-    cnt=len(stages)
+    length=len(stages)
 
     for i in range(1, N+1):
         count=stages.count(i)
-        if cnt==0:
+        if length==0:
             fail=0
         else:
-            fail=count/cnt
+            fail=count/length
 
         failure.append((fail, i))
-        cnt-=count
+        length-=count
 
     failure.sort(key=lambda x:(-x[0], x[1]))
 
