@@ -32,4 +32,4 @@ for i in range(1, n+1):
         if count==n: # 정확한 순위를 알 수 있는 경우를 출력하는 것이므로 count가 n과 같을 경우만 result에 +1을 해준다.
             result+=1
 
-print(result)ㄴ
+print(result)
