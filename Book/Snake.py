@@ -89,8 +89,6 @@ def turn(direction, c): # direction은 현재 방향, c는 회전하고자 하�
         direction=(direction+1)%4
     return direction
 
-
-
 # 방향 동남서북(시계방향으로)
 dx=[0, 1, 0, -1]
 dy=[1, 0, -1, 0]
