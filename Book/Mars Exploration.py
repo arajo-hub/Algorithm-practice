@@ -54,7 +54,7 @@ for tc in range(int(sys.stdin.readline())):
     x, y=0, 0
     q=[(array[x][y], x, y)]
     distance[x][y]=array[x][y]
-    print(array)
+    
     while q:
             dist, x, y = heapq.heappop(q)
             if distance[x][y] < dist:
