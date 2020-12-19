@@ -2,7 +2,6 @@
 # 자연수 n과 m이 주어졌을 때,
 # 아래 조건을 만족하는 길이가 m인 수열을 모두 구하는 프로그램을 작성하시오.
 
-from itertools import combinations_with_replacement
 import sys
 
 n, m=map(int, sys.stdin.readline().split())
