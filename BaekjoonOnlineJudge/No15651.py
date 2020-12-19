@@ -8,7 +8,6 @@ n, m=map(int, sys.stdin.readline().split())
 array=[]
 
 def solution(depth, n, m):
-    print(array)
     if depth==m:
         print(' '.join(map(str, array)))
         return
