@@ -2,27 +2,34 @@
 
 # N이 주어졌을 때, 퀸을 놓는 방법의 수(경우의 수)를 구하는 프로그램을 작성하시오.
 
-def isPossible(x): # x번째 열에 퀸을 놓을 수 있는지 아닌지 판별
-    for i in range(x):
-        if row[x]==row[i] or abs(row[x]-row[i])==x-i:
-            return False
-    return True
-
-def dfs(x):
-    global result
-    if x==n:
-        result+=1 # n개가 모두 들어갔다는 뜻
-    else:
-        for i in range(n):
-            row[x]=i
-            if isPossible(x):
-                dfs(x+1)
-
 import sys
 
-n=int(sys.stdin.readline())
+n = int(sys.stdin.readline())
 
-row=[0]*n
-result=0
-dfs(0)
-print(result)
+def dfs(arr):
+    global ans
+    length = len(arr)
+    if length==n:
+        ans+=1
+        return
+    candidate = list(range(n)) # 후보가 될 수 있는 자리를 0부터 n-1까지 만들고 제외하는 방법을 사용
+    for i in range(length):
+        if arr[i] in candidate:  # 같은 가로줄에 있으면 후보에서 제외
+            candidate.remove(arr[i])
+        distance = length - i
+        if arr[i] + distance in candidate:  # 같은 '/' 대각선에 있으면 후보에서 제외
+            candidate.remove(arr[i] + distance)
+        if arr[i] - distance in candidate:  # 같은 '\' 대각선에 있으면 후보에서 제외
+            candidate.remove(arr[i] - distance)
+    if candidate:
+        for i in candidate:
+            arr.append(i)
+            dfs(arr)
+            arr.pop()
+    else:
+        return
+
+ans = 0
+for i in range(n):
+    dfs([i])
+print(ans)
