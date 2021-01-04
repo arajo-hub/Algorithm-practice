@@ -58,5 +58,5 @@ sudoku=[]
 for i in range(9):
     sudoku.append(list(map(int, sys.stdin.readline().split())))
 
-zeros=[(i, j) for i in range(9) for j in range(9) if sudoku[i][j]==0]
+zeros=[(i, j) for i in range(9) for j in range(9) if sudoku[i][j]==0] # 0인 위치의 좌표를 모아놓은 리스트
 dfs(0)
