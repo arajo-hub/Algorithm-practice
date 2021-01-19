@@ -26,20 +26,12 @@ for i in range(n):
     gcd=math.gcd(abs(nums[i]-nums[i-1]), gcd) # gcd : 최대공약수
 gcd_a=int(gcd**0.5)
 
-# for j in range(2, gcd_a+1):
-#     if gcd%j==0:
-#         result.append(j)
-#         result.append(gcd//j)
-# result.append(gcd)
-# result=list(set(result))
-# result.sort()
-
-for i in range(2, gcd_a + 1):
-    if gcd % i == 0:
-        result.append(i)
-        result.append(gcd // i)
+for j in range(2, gcd_a+1):
+    if gcd%j==0:
+        result.append(j)
+        result.append(gcd//j)
 result.append(gcd)
-result = list(set(result))
+result=list(set(result))
 result.sort()
 
 for k in result:
