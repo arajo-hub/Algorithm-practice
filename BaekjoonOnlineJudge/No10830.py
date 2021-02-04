@@ -50,4 +50,4 @@ for i in solution(a, b):
         print(j, end = ' ')
     print()
 
-https://hon6036.github.io/%EB%B6%84%ED%95%A0%20%EC%A0%95%EB%B3%B5/10830/
+# 출처 : https://hon6036.github.io/%EB%B6%84%ED%95%A0%20%EC%A0%95%EB%B3%B5/10830/
