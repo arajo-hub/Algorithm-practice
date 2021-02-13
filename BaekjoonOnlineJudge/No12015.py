@@ -11,7 +11,6 @@ for i in a:
     k=bisect_left(dp, i)
     if len(dp)<=k:
         dp.append(i)
-        print(dp)
     else:
         dp[k]=i
 
