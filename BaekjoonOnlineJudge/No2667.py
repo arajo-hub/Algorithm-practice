@@ -1,5 +1,7 @@
-from sys import stdin
-n = int(input())
+import sys
+
+n = int(sys.stdin.readline())
+
 # 데이터 저장용 공간 matrix
 matrix = [[0]*n for _ in range(n)]
 # 방문 내역 저장용 visited
@@ -7,7 +9,7 @@ visited = [[0]*n for _ in range(n)]
 
 # matrix에 아파트 유무 0과 1 저장
 for i in range(n):
-    line = stdin.readline().strip()
+    line = sys.stdin.readline().strip()
     for j, b in enumerate(line):
         matrix[i][j] = int(b)
 
@@ -35,6 +37,7 @@ def dfs(x, y, c):
 cnt = 1 # 아파트 단지 세기 위한
 numlist = [] # 아파트 단지별 숫자
 nums=0 # 아파트 수
+
 for a in range(n):
     for b in range(n):
         if matrix[a][b] == 1 and visited[a][b] == 0:
@@ -44,5 +47,6 @@ for a in range(n):
 #            cnt += 1 # 아파트 단지 별 표시용
 
 print(len(numlist))
+
 for n in sorted(numlist):
     print(n)
