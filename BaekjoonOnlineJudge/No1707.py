@@ -1,47 +1,51 @@
+from collections import deque
+import sys
+
+k = int(sys.stdin.readline())
+
 def bfs(start):
 
-    visited[start] = 1
-
+    bi[start] = 1
     q = deque()
     q.append(start)
 
     while q:
-        x = q.popleft()
 
-        for i in matrix[x]:
-            if visited[i]==0:
-                visited[i]=-visited[x]
+        a = q.popleft()
+
+        # 제일 처음엔 start와 연결된 정점들 탐색
+        # 이후로는 그 정점들과 연결된 정점들 계속 탐색
+        for i in s[a]:
+            if bi[i] == 0: # 연결된 정점이면
+                bi[i] = -bi[a] # -1로 바꿔준다.
                 q.append(i)
             else:
-                if visited[i] == visited[x]:
+                if bi[i] == bi[a]:
                     return False
     return True
 
-from collections import deque
-import sys
+for i in range(k):
 
-tc = int(sys.stdin.readline())
-
-for _ in range(tc):
-    v, e = map(int, sys.stdin.readline().split())
+    v, e = map(int, input().split())
 
     isTrue = True
 
-    matrix = [[] for i in range(v+1)]
-    visited = [0 for i in range(v+1)]
+    s = [[] for i in range(v + 1)]
+    bi = [0 for i in range(v + 1)]
 
-    for _ in range(e):
-        point1, point2 = map(int, sys.stdin.readline().split())
-        matrix[point1].append(point2)
-        matrix[point1].append(point2)
+    for j in range(e):
+        a, b = map(int, input().split())
+        # 그 칸의 인덱스를 정점으로, 연결된 노드들을 넣어준다.
+        # 2번 정점이 1, 3, 4와 연결되어 있다고 하면
+        # s[2] = [1, 3, 4] 이렇게.
+        s[a].append(b)
+        s[b].append(a)
 
-    for i in range(1, v+1):
-        if visited[i] == 0:
-            if not bfs(i):
+    # 정점을 하나씩 탐색
+    for k in range(1, v + 1):
+        if bi[k] == 0: # 탐색하지 않은 곳이고,
+            if not bfs(k):
                 isTrue = False
                 break
-    
-    if isTrue:
-        print("YES")
-    else:
-        print("NO")
+
+    print("YES"if isTrue else "NO")
